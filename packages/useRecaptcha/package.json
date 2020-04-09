@@ -1,0 +1,17 @@
+{
+  "name": "rc-use-recaptcha-v3",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "pika-pack build",
+    "release": "yarn run build && npm publish ./pkg"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      ["@pika/plugin-ts-standard-pkg", { "tsconfig": "../../tsconfig.json" }],
+      ["@pika/plugin-build-node", { "sourcemap": false }],
+      ["@pika/plugin-build-web", { "sourcemap": false }],
+      ["pika-plugin-clean-dist-src"]
+    ]
+  }
+}
