@@ -1,19 +1,18 @@
 {
   "name": "rc-use-recaptcha-v3",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "src/index.ts",
   "scripts": {
     "build": "pika-pack build",
     "tests": "jest",
-    "release": "yarn run tests && yarn run build && npm publish ./pkg"
+    "lint": "eslint --debug src/**/**.ts",
+    "lint:types": "tsc --noEmit",
+    "release": "yarn run lint && yarn run lint:types && yarn run tests && yarn run build && npm publish ./pkg"
   },
   "@pika/pack": {
     "pipeline": [
       [
-        "@pika/plugin-ts-standard-pkg",
-        {
-          "tsconfig": "../../tsconfig.json"
-        }
+        "@pika/plugin-ts-standard-pkg"
       ],
       [
         "@pika/plugin-build-umd",

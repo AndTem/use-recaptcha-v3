@@ -6,9 +6,9 @@
     "packages/*"
   ],
   "scripts": {
-    "tests": "jest",
-    "lint": "eslint --debug packages/**/**.ts",
-    "lint:types": "tsc --noEmit"
+    "tests": "yarn workspaces run tests",
+    "lint": "yarn workspaces run lint",
+    "lint:types": "yarn workspaces run lint:types"
   },
   "devDependencies": {
     "@pika/pack": "0.5.0",
