@@ -4,14 +4,45 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "pika-pack build",
-    "release": "yarn run build && npm publish ./pkg"
+    "tests": "jest",
+    "release": "yarn run tests && yarn run build && npm publish ./pkg"
   },
   "@pika/pack": {
     "pipeline": [
-      ["@pika/plugin-ts-standard-pkg", { "tsconfig": "../../tsconfig.json" }],
-      ["@pika/plugin-build-node", { "sourcemap": false }],
-      ["@pika/plugin-build-web", { "sourcemap": false }],
-      ["pika-plugin-clean-dist-src"]
+      [
+        "@pika/plugin-ts-standard-pkg",
+        {
+          "tsconfig": "../../tsconfig.json"
+        }
+      ],
+      [
+        "@pika/plugin-build-umd",
+        {
+          "sourcemap": false
+        }
+      ],
+      [
+        "@pika/plugin-build-node",
+        {
+          "sourcemap": false
+        }
+      ],
+      [
+        "@pika/plugin-build-web",
+        {
+          "sourcemap": false
+        }
+      ],
+      [
+        "pika-plugin-clean-dist-src"
+      ]
     ]
+  },
+  "dependencies": {
+    "react-script-hook": "1.0.17"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }
