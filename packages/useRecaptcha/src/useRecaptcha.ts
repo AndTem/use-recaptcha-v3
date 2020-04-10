@@ -15,7 +15,7 @@ const useRecaptcha = ({
   siteKey,
   lang,
 }: HookEntryParams): ReturnedHookValue => {
-  const [readinessStatus, setStatus] = useState<ReadinessStatus>({
+  const [status, setStatus] = useState<ReadinessStatus>({
     loading: true,
     ready: false,
     error: null,
@@ -40,7 +40,7 @@ const useRecaptcha = ({
   };
 
   const getRecaptchaToken: GetRecaptchaToken = async (action: string) => {
-    if (!readinessStatus.ready) {
+    if (!status.ready) {
       throw Error('executeRecaptcha was called before the script was loaded');
     }
 
@@ -56,7 +56,7 @@ const useRecaptcha = ({
   });
 
   return {
-    readinessStatus,
+    status,
     getRecaptchaToken,
   };
 };

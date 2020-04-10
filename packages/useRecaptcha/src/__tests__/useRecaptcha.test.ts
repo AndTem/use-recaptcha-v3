@@ -10,7 +10,7 @@ describe('useRecaptcha', () => {
 
   it('the default status is set correctly', () => {
     const { result } = renderHook(() => useRecaptcha({ siteKey }));
-    const { readinessStatus } = result.current;
+    const { status } = result.current;
 
     const expectedDefaultStatus = {
       loading: true,
@@ -18,6 +18,6 @@ describe('useRecaptcha', () => {
       error: null,
     };
 
-    expect(readinessStatus).toEqual(expectedDefaultStatus);
+    expect(status).toEqual(expectedDefaultStatus);
   });
 });

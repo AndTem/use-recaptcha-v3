@@ -20,11 +20,11 @@ const CURRENT_LANG = 'ru';
 const RECAPTCHA_ACTION = 'test_action';
 
 const RecaptchaExample = () => {
-  const { readinessStatus, getRecaptchaToken } = useRecaptcha({
+  const { status, getRecaptchaToken } = useRecaptcha({
     siteKey: GRECAPTCHA_SITE_KEY,
     lang: CURRENT_LANG
   });
-  const { loading, ready, error } = readinessStatus;
+  const { loading, ready, error } = status;
 
   const handleExecute = async () => {
     try {
@@ -48,7 +48,7 @@ const RecaptchaExample = () => {
 
 # API
 ```js
-const { readinessStatus, getRecaptchaToken } = useRecaptcha({ siteKey, lang });
+const { status, getRecaptchaToken } = useRecaptcha({ siteKey, lang });
 ```
 
 ## Entry params
@@ -58,7 +58,7 @@ const { readinessStatus, getRecaptchaToken } = useRecaptcha({ siteKey, lang });
 
 ## Returned hook value
 ```returnedHookValue```: ```<Object>```
-  * ```readinessStatus```: ```<Object>```
+  * ```status```: ```<Object>```
     * ```loading```: ```<Boolean>```. Flag indicating that recaptcha is loading
     * ```ready```: ```<Boolean>```. Flag indicating recaptcha readiness. Script loaded successfully grecaptcha ready to go
     * ```error```: ```<Error>```. Error that occurred while loading the script

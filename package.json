@@ -1,6 +1,8 @@
 {
   "name": "@and_tem/rc-hooks",
   "description": "React hooks packages",
+  "author": "And_tem",
+  "license": "MIT",
   "private": true,
   "workspaces": [
     "packages/*"

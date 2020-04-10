@@ -28,6 +28,6 @@ export type ReadinessStatus = {
 };
 
 export type ReturnedHookValue = {
-  readinessStatus: ReadinessStatus;
+  status: ReadinessStatus;
   getRecaptchaToken: GetRecaptchaToken;
 };
