@@ -4,7 +4,7 @@ This hook loads the google-recaptcha script and allows you to get recaptcha toke
 
 # Installation
 ```
-npm install --save rc-use-recaptcha-v3
+npm install --save use-recaptcha-v3
 ```
 
 # Usage
@@ -13,7 +13,7 @@ npm install --save rc-use-recaptcha-v3
 import React from 'react';
 import Loader from 'loader-lib';
 import ajax from 'ajax-lib';
-import useRecaptcha from 'rc-use-recaptcha-v3';
+import useRecaptcha from 'use-recaptcha-v3';
 
 const GRECAPTCHA_SITE_KEY = 'site_key';
 const CURRENT_LANG = 'ru';

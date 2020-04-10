@@ -1,5 +1,5 @@
 {
-  "name": "rc-use-recaptcha-v3",
+  "name": "use-recaptcha-v3",
   "version": "0.1.0",
   "author": "And_tem",
   "description": "React hook for google recaptcha v3",
@@ -25,7 +25,7 @@
     "tests": "jest",
     "lint": "eslint --debug src/**/**.ts",
     "lint:types": "tsc --noEmit",
-    "release": "yarn run lint && yarn run lint:types && yarn run tests && yarn run build && npm publish ./pkg"
+    "release": "yarn run lint && yarn run lint:types && yarn run tests && yarn run build && yarn publish ./pkg"
   },
   "@pika/pack": {
     "pipeline": [
