@@ -1,6 +1,24 @@
 {
   "name": "rc-use-recaptcha-v3",
   "version": "0.1.0",
+  "author": "And_tem",
+  "description": "React hook for google recaptcha v3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndTem/rc-hooks/tree/master/packages/useRecaptcha"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/AndTem/rc-hooks/tree/master/packages/useRecaptcha#Readme",
+  "keywords": [
+    "use-recaptcha",
+    "use recaptcha",
+    "recaptcha hook",
+    "recaptcha react hook",
+    "recaptcha v3"
+  ],
+  "bugs": {
+    "url": "https://github.com/AndTem/rc-hooks/issues"
+  },
   "main": "src/index.ts",
   "scripts": {
     "build": "pika-pack build",
