@@ -26,7 +26,7 @@ const RecaptchaExample = () => {
   });
   const { loading, ready, error } = status;
 
-  const handleExecute = async () => {
+  const handleSendData = async () => {
     try {
       const recaptchaToken = await getRecaptchaToken(RECAPTCHA_ACTION);
 
@@ -39,7 +39,7 @@ const RecaptchaExample = () => {
   return (
     <div>
       {loading && <Loader />}
-      {ready && <button onClick={handleExecute}>Execute recaptcha</button>}
+      {ready && <button onClick={handleSendData}>Send data to sever</button>}
       {error && <p>{error.message}</p>}
     </div>
   );
