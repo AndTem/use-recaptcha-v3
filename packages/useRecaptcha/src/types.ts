@@ -17,7 +17,7 @@ export type HookEntryParams = {
   lang?: string;
 };
 
-export type RecaptchaExecute = (
+export type GetRecaptchaToken = (
   action: string
 ) => Promise<GRecaptchaResultToken>;
 
@@ -29,5 +29,5 @@ export type ReadinessStatus = {
 
 export type ReturnedHookValue = {
   readinessStatus: ReadinessStatus;
-  executeRecaptcha: RecaptchaExecute;
+  getRecaptchaToken: GetRecaptchaToken;
 };

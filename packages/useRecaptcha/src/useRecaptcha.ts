@@ -1,13 +1,12 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import useScript from 'react-script-hook';
 
 import { generateScriptSrc } from './utils';
 
 import {
-  GRecaptchaExecute,
   RecaptchaWindow,
   HookEntryParams,
-  RecaptchaExecute,
+  GetRecaptchaToken,
   ReadinessStatus,
   ReturnedHookValue,
 } from './types';
@@ -21,17 +20,9 @@ const useRecaptcha = ({
     ready: false,
     error: null,
   });
-  const executeFuncContainer = useRef<RecaptchaExecute | null>(null);
-
-  const createExecuteFunc = (recaptchaExecute: GRecaptchaExecute) => {
-    executeFuncContainer.current = (action: string) =>
-      Promise.resolve(recaptchaExecute(siteKey, { action }));
-  };
 
   const handleLoadScript = () => {
     (window as RecaptchaWindow).grecaptcha.ready(() => {
-      createExecuteFunc((window as RecaptchaWindow).grecaptcha.execute);
-
       setStatus({
         loading: false,
         ready: true,
@@ -48,7 +39,7 @@ const useRecaptcha = ({
     });
   };
 
-  const executeRecaptcha: RecaptchaExecute = async (action: string) => {
+  const getRecaptchaToken: GetRecaptchaToken = async (action: string) => {
     if (!readinessStatus.ready) {
       throw Error('executeRecaptcha was called before the script was loaded');
     }
@@ -66,7 +57,7 @@ const useRecaptcha = ({
 
   return {
     readinessStatus,
-    executeRecaptcha,
+    getRecaptchaToken,
   };
 };
 
