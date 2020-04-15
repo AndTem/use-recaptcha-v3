@@ -1,6 +1,6 @@
 {
   "name": "use-recaptcha-v3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "And_tem",
   "description": "React hook for google recaptcha v3",
   "repository": {
