@@ -48,6 +48,7 @@ const useRecaptcha = ({
       (window as RecaptchaWindow).grecaptcha
         .execute(siteKey, { action })
         .then(resolve, (error) => {
+          // error may be null
           if (!error) {
             reject(Error('Error while receiving token'));
           }
