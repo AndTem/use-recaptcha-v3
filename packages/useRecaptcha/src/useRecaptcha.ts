@@ -39,15 +39,22 @@ const useRecaptcha = ({
     });
   };
 
-  const getRecaptchaToken: GetRecaptchaToken = async (action: string) => {
-    if (!status.ready) {
-      throw Error('executeRecaptcha was called before the script was loaded');
-    }
+  const getRecaptchaToken: GetRecaptchaToken = (action: string) =>
+    new Promise((resolve, reject) => {
+      if (!status.ready) {
+        reject(Error('Recaptcha script not yet loaded'));
+      }
 
-    return Promise.resolve(
-      (window as RecaptchaWindow).grecaptcha.execute(siteKey, { action })
-    );
-  };
+      (window as RecaptchaWindow).grecaptcha
+        .execute(siteKey, { action })
+        .then(resolve, (error) => {
+          if (!error) {
+            reject(Error('Error while receiving token'));
+          }
+
+          reject(error);
+        });
+    });
 
   useScript({
     src: generateScriptSrc({ siteKey, lang }),
