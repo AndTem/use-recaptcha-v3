@@ -7,7 +7,7 @@ describe('generateScriptSrc', () => {
     };
 
     expect(generateScriptSrc(params)).toBe(
-      'https://www.google.com/recaptcha/api.js?render=site_key'
+      'https://www.google.com/recaptcha/api.js?render=site_key',
     );
   });
 
@@ -18,7 +18,7 @@ describe('generateScriptSrc', () => {
     };
 
     expect(generateScriptSrc(params)).toBe(
-      'https://www.google.com/recaptcha/api.js?render=site_key&hl=ru'
+      'https://www.google.com/recaptcha/api.js?render=site_key&hl=ru',
     );
   });
 });

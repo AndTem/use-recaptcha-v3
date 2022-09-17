@@ -2,12 +2,11 @@ import { useState } from 'react';
 import useScript from 'react-script-hook';
 
 import { generateScriptSrc } from './utils';
-
 import {
-  RecaptchaWindow,
-  HookEntryParams,
   GetRecaptchaToken,
+  HookEntryParams,
   ReadinessStatus,
+  RecaptchaWindow,
   ReturnedHookValue,
 } from './types';
 

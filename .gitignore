@@ -1,7 +1,6 @@
 .DS_Store
-.idea
-.vscode
 *.log
 *.sublime*
 npm-debug.*
 *node_modules/
+pkg

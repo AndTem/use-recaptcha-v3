@@ -2,7 +2,7 @@ type GRecaptchaResultToken = string;
 
 export type GRecaptchaExecute = (
   siteKey: string,
-  { action }: { action: string }
+  { action }: { action: string },
 ) => PromiseLike<GRecaptchaResultToken>;
 
 export type RecaptchaWindow = typeof window & {
@@ -13,12 +13,18 @@ export type RecaptchaWindow = typeof window & {
 };
 
 export type HookEntryParams = {
+  /**
+   * @description reCAPTCHA v3 key (https://developers.google.com/recaptcha/docs/v3)
+   */
   siteKey: string;
+  /**
+   * @description Google lang code (https://developers.google.com/recaptcha/docs/language)
+   */
   lang?: string;
 };
 
 export type GetRecaptchaToken = (
-  action: string
+  action: string,
 ) => Promise<GRecaptchaResultToken>;
 
 export type ReadinessStatus = {
